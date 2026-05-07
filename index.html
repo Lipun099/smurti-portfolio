@@ -13,11 +13,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
+        @font-face {
+            font-family: 'Brittany';
+            src: url('BrittanySignature.ttf') format('truetype');
+        }
+
         :root {
             --bg: #080808;
             --surface: #111111;
-            --gold: #D9A441;
-            --gold-glow: #F6C56B;
+            /* Metallic Gold Colors */
+            --gold: #D4AF37; 
+            --gold-glow: #F6D365;
+            --gold-dark: #B8860B;
+            
             --matte-black: #0F0F0F;
             --text-white: #F5F5F5;
             --text-sec: #9A9A9A;
@@ -47,25 +55,11 @@
             color: var(--bg);
         }
 
-        html.lenis {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
-        }
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
 
         /* Custom Cursor */
         .cursor {
@@ -77,7 +71,7 @@
             border: 2px solid var(--gold);
             border-radius: 50%;
             pointer-events: none;
-            z-index: 9999;
+            z-index: 99999;
             transform: translate(-50%, -50%);
             transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
                         height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
@@ -87,7 +81,7 @@
         .cursor.hovered {
             width: 80px;
             height: 80px;
-            background-color: rgba(217, 164, 65, 0.1);
+            background-color: rgba(212, 175, 55, 0.1);
             backdrop-filter: blur(2px);
         }
 
@@ -99,7 +93,7 @@
             width: 100vw;
             height: 100vh;
             background: var(--bg);
-            z-index: 10000;
+            z-index: 20000;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -143,7 +137,7 @@
             transform: translateX(-50%);
             width: 90vw;
             max-width: 800px;
-            padding: 15px 40px;
+            padding: 12px 20px 12px 40px;
             background: rgba(17, 17, 17, 0.4);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -157,16 +151,8 @@
             transform: translate(-50%, -50px);
         }
         
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-logo img {
-            height: 40px;
-            width: auto;
-        }
-
+        .nav-logo { display: flex; align-items: center; }
+        .nav-logo img { height: 40px; width: auto; }
         .nav-logo .text-fallback {
             font-family: var(--font-head);
             font-size: 2rem;
@@ -177,7 +163,8 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -186,11 +173,26 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--gold);
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Highlighted Nav Contact Button */
+        .nav-contact-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-glow), var(--gold-dark));
+            color: var(--bg) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            transition: all 0.3s ease !important;
+        }
+        .nav-contact-btn:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
+            color: var(--bg) !important;
         }
 
         /* Floating Social Icons */
@@ -211,7 +213,6 @@
             border-radius: 50%;
             background: rgba(17, 17, 17, 0.8);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: center;
@@ -249,8 +250,8 @@
 
         .floating-social:hover .social-toggle {
             border-color: var(--gold);
-            box-shadow: 0 0 25px rgba(217, 164, 65, 0.2);
-            background: rgba(217, 164, 65, 0.1);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+            background: rgba(212, 175, 55, 0.1);
         }
 
         .floating-social:hover .social-toggle svg {
@@ -279,8 +280,8 @@
 
         .social-icons-wrapper a:hover {
             border-color: var(--gold);
-            background: rgba(217, 164, 65, 0.1);
-            box-shadow: 0 0 15px rgba(217, 164, 65, 0.2);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
             transform: translateY(-3px) scale(1.05);
         }
 
@@ -288,6 +289,7 @@
         section {
             padding: 15vh 10vw;
             position: relative;
+            z-index: 2; /* above background particles */
         }
 
         .section-title {
@@ -307,7 +309,6 @@
             justify-content: center;
             padding: 0 10vw;
             position: relative;
-            overflow: hidden;
         }
         
         .hero-content {
@@ -330,19 +331,40 @@
         }
 
         .hero-title {
+            position: relative;
             font-family: var(--font-head);
             font-size: clamp(6rem, 20vw, 18rem);
             line-height: 0.85;
             margin-bottom: 40px;
-            overflow: hidden;
             color: var(--text-white);
             text-shadow: 0 10px 40px rgba(0,0,0,0.5);
             letter-spacing: 5px;
         }
         
-        .hero-title span {
-            display: inline-block;
-            transform: translateY(100%);
+        .title-word-wrapper { overflow: hidden; display: inline-block; }
+        .hero-title .title-word { display: inline-block; transform: translateY(100%); }
+
+        .title-signature {
+            font-family: 'Brittany', cursive;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.5;
+            padding: 20px;
+            color: var(--gold);
+            background: linear-gradient(135deg, var(--gold-glow), var(--gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: absolute;
+            bottom: -15%;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+            z-index: 5;
+            opacity: 0;
+            pointer-events: none;
+            letter-spacing: 0;
+            text-transform: none;
+            white-space: nowrap;
         }
 
         .hero-roles {
@@ -359,11 +381,7 @@
             text-transform: uppercase;
         }
 
-        .cta-group {
-            display: flex;
-            gap: 30px;
-            opacity: 0;
-        }
+        .cta-group { display: flex; gap: 30px; opacity: 0; }
 
         .btn {
             padding: 20px 50px;
@@ -379,16 +397,14 @@
             overflow: hidden;
             text-decoration: none;
             display: inline-block;
-            border-radius: 50px; /* Circular edge */
+            border-radius: 50px;
+            cursor: none;
         }
 
         .btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: var(--gold);
             transform: scaleX(0);
             transform-origin: right;
@@ -397,23 +413,21 @@
             border-radius: 50px;
         }
 
-        .btn:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
+        .btn:hover::before { transform: scaleX(1); transform-origin: left; }
         .btn:hover {
             color: var(--bg);
-            box-shadow: 0 0 30px rgba(217, 164, 65, 0.3);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             border-color: transparent;
         }
 
         .btn-solid {
-            background: var(--gold);
+            background: linear-gradient(135deg, var(--gold), var(--gold-glow), var(--gold-dark));
             color: var(--bg);
+            border: none;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
         .btn-solid::before {
-            background: var(--text-white);
+            background: linear-gradient(135deg, var(--gold-glow), #FFF3B0, var(--gold));
         }
 
         /* Who Am I Statement */
@@ -423,7 +437,7 @@
             align-items: center;
             min-height: 80vh;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(17,17,17,0.5) 0%, var(--bg) 100%);
+            background: radial-gradient(circle at center, rgba(17,17,17,0.5) 0%, transparent 100%);
             padding: 0 5vw;
         }
 
@@ -439,121 +453,99 @@
             color: var(--gold);
             display: block;
             margin-top: 2vh;
-            text-shadow: 0 0 40px rgba(217, 164, 65, 0.3);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            background: linear-gradient(135deg, var(--gold), var(--gold-glow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Skills Orbit */
-        .skills-section {
-            background: var(--bg);
+        /* Flowing Wave Skills Section */
+        .wave-section {
             overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-        }
-
-        .orbit-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 600px;
-            width: 100%;
+            min-height: 80vh;
             position: relative;
-            margin-top: 50px;
         }
 
-        .center-node {
-            width: 180px;
-            height: 180px;
+        .wave-container {
+            position: relative;
+            width: 100vw;
+            height: 400px;
+            margin-top: 50px;
+            overflow: hidden;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #skill-particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .wave-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold-glow);
+            opacity: 0.6;
+        }
+
+        .flowing-icons {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            z-index: 2;
+            overflow: hidden;
+            white-space: nowrap;
+            /* Fade edges */
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .flowing-track {
+            display: inline-flex;
+            gap: 15vw;
+            padding-left: 15vw;
+        }
+
+        .skill-node {
+            width: 100px;
+            height: 100px;
             background: rgba(17, 17, 17, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(217, 164, 65, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: var(--font-head);
-            font-size: 2.5rem;
-            color: var(--gold);
-            z-index: 2;
-            box-shadow: 0 0 50px rgba(217, 164, 65, 0.15), inset 0 0 20px rgba(217, 164, 65, 0.1);
-            text-shadow: 0 0 10px rgba(217,164,65,0.5);
-        }
-
-        .orbit-ring {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border: 1px dashed rgba(217, 164, 65, 0.2);
-            border-radius: 50%;
-            animation: rotate 30s linear infinite;
-        }
-
-        .orbit-ring-outer {
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            animation: rotate 45s linear infinite reverse;
-        }
-
-        .orbit-node {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: translate(-50%, -50%);
-            animation: counter-rotate 30s linear infinite;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.1);
             transition: all 0.3s ease;
         }
 
-        .orbit-node:hover {
-            border-color: var(--gold);
-            box-shadow: 0 0 20px rgba(217, 164, 65, 0.3);
-            background: rgba(217, 164, 65, 0.1);
+        .skill-node:hover {
+            border-color: var(--gold-glow);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            transform: scale(1.1) translateY(-10px);
+            background: rgba(212, 175, 55, 0.1);
         }
 
-        .orbit-node img {
-            width: 40px;
-            height: 40px;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
-            transition: transform 0.3s ease;
-        }
-
-        .orbit-node:hover img {
-            transform: scale(1.1);
-        }
-
-        .orbit-node:nth-child(1) { top: 0%; left: 50%; }
-        .orbit-node:nth-child(2) { top: 38%; left: 97.5%; }
-        .orbit-node:nth-child(3) { top: 90.5%; left: 79.4%; }
-        .orbit-node:nth-child(4) { top: 90.5%; left: 20.6%; }
-        .orbit-node:nth-child(5) { top: 38%; left: 2.5%; }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes counter-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(-360deg); }
+        .skill-node img {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
         }
 
         /* Projects Section */
-        .projects {
-            background: var(--bg);
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -571,7 +563,7 @@
             transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             transform-style: preserve-3d;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 30px; /* Circular edge for glass cards */
+            border-radius: 30px;
             text-decoration: none;
             display: block;
             color: inherit;
@@ -592,13 +584,13 @@
         .project-card:hover {
             transform: translateY(-15px);
             background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(217, 164, 65, 0.1);
-            border-color: rgba(217, 164, 65, 0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
         }
 
         .project-card:hover::before {
             opacity: 1;
-            box-shadow: inset 0 0 30px rgba(217, 164, 65, 0.1);
+            box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.1);
         }
 
         .project-visual {
@@ -611,7 +603,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 15px; /* Softer edges */
+            border-radius: 15px;
         }
 
         .project-visual img {
@@ -621,11 +613,7 @@
             opacity: 0.7;
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-
-        .project-card:hover .project-visual img {
-            opacity: 1;
-            transform: scale(1.05);
-        }
+        .project-card:hover .project-visual img { opacity: 1; transform: scale(1.05); }
 
         .project-type {
             color: var(--gold);
@@ -652,7 +640,7 @@
 
         /* Timeline Section */
         .timeline-section {
-            background: linear-gradient(to bottom, var(--bg), var(--matte-black));
+            background: linear-gradient(to bottom, transparent, var(--matte-black));
         }
 
         .timeline {
@@ -665,20 +653,14 @@
 
         .timeline-line {
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 1px;
-            height: 100%;
+            left: 0; top: 0; width: 1px; height: 100%;
             background: rgba(255,255,255,0.1);
         }
 
         .timeline-progress {
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 3px;
-            height: 0%;
-            background: var(--gold);
+            left: 0; top: 0; width: 3px; height: 0%;
+            background: linear-gradient(to bottom, var(--gold), var(--gold-glow));
             box-shadow: 0 0 15px var(--gold-glow);
             transform: translateX(-1px);
         }
@@ -689,17 +671,11 @@
             opacity: 0;
             transform: translateY(40px);
         }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
+        .timeline-item:last-child { margin-bottom: 0; }
 
         .timeline-dot {
             position: absolute;
-            left: -66px;
-            top: 0;
-            width: 13px;
-            height: 13px;
+            left: -66px; top: 0; width: 13px; height: 13px;
             border-radius: 50%;
             background: var(--surface);
             border: 2px solid var(--gold);
@@ -743,7 +719,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: var(--bg);
             position: relative;
             overflow: hidden;
         }
@@ -764,7 +739,7 @@
 
         .contact-title:hover span {
             color: var(--gold);
-            text-shadow: 0 0 40px rgba(217, 164, 65, 0.2);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
         }
 
         .social-links {
@@ -787,52 +762,126 @@
         .social-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
+            bottom: 0; left: 0; width: 100%; height: 1px;
             background: var(--gold);
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .social-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
+        .social-link:hover::after { transform: scaleX(1); transform-origin: left; }
+        .social-link:hover { color: var(--gold); }
 
-        .social-link:hover {
-            color: var(--gold);
-        }
-
-        /* Floating particles */
+        /* Floating 3D Metal Particles globally */
         .particles {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
-            z-index: 0;
+            z-index: 0; /* behind everything */
         }
 
         .particle {
             position: absolute;
-            background: var(--gold);
-            border-radius: 50%;
+            /* Metallic 3D gradient */
+            background: linear-gradient(135deg, rgba(212,175,55,0.4), rgba(255,235,160,0.6), rgba(184,134,11,0.4));
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.1);
             opacity: 0;
-            box-shadow: 0 0 10px var(--gold);
+            transform-style: preserve-3d;
         }
+
+        /* Contact Modal Form */
+        .contact-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 15000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .contact-modal.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .modal-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(8, 8, 8, 0.85);
+            backdrop-filter: blur(15px);
+        }
+        .modal-content {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 50px;
+            width: 90%;
+            max-width: 500px;
+            z-index: 2;
+            transform: translateY(50px);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(212,175,55,0.05);
+        }
+        .contact-modal.active .modal-content {
+            transform: translateY(0);
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: none; border: none;
+            color: var(--text-sec);
+            font-size: 2rem;
+            line-height: 1;
+            transition: color 0.3s;
+            cursor: none;
+        }
+        .close-btn:hover { color: var(--gold); }
+        .modal-title {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .contact-form input, .contact-form textarea {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: var(--text-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+        .contact-form .btn { width: 100%; border-radius: 50px; margin-top: 10px; }
 
     </style>
 </head>
 <body>
     <div class="cursor" id="custom-cursor"></div>
 
+    <!-- Global Floating 3D Metal Particles -->
+    <div class="particles" id="particles"></div>
+
     <!-- Cinematic Loader -->
     <div class="loader" id="loader">
-        <img src="icon.png" class="loader-logo" alt="SPS Logo" style="height: 100px; margin-bottom: 30px; opacity: 0; filter: drop-shadow(0 0 15px rgba(217,164,65,0.5));" id="loader-logo" onerror="this.style.display='none';">
+        <img src="icon.png" class="loader-logo" alt="SPS Logo" style="height: 100px; margin-bottom: 30px; opacity: 0; filter: drop-shadow(0 0 15px rgba(212,175,55,0.5));" id="loader-logo" onerror="this.style.display='none';">
         <div class="loader-text-container">
             <div class="loader-text" id="loader-text">INITIALIZING EXPERIENCE</div>
         </div>
@@ -849,7 +898,7 @@
         </a>
         <div class="nav-links">
             <a href="#projects" class="interactive-element">Work</a>
-            <a href="#contact" class="interactive-element">Contact</a>
+            <a href="#" class="interactive-element nav-contact-btn open-contact">Contact</a>
         </div>
     </nav>
 
@@ -874,13 +923,32 @@
         </div>
     </div>
 
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="modal-overlay interactive-element" id="close-modal-overlay"></div>
+        <div class="modal-content">
+            <button class="close-btn interactive-element" id="close-modal-btn">×</button>
+            <h3 class="modal-title">Let's Connect</h3>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message Sent Successfully!'); document.getElementById('contact-modal').classList.remove('active');">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Tell me about your project..." rows="4" required></textarea>
+                <button type="submit" class="btn btn-solid interactive-element">Send Message</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="particles" id="particles"></div>
         <div class="hero-content">
             <div class="hello-text">HELLO I'M</div>
             <h1 class="hero-title">
-                <span class="title-word">SMRUTI</span>
+                <div style="position: relative; display: inline-block;">
+                    <div class="title-word-wrapper">
+                        <span class="title-word">SMRUTI</span>
+                    </div>
+                    <span class="title-signature">PRAKASH</span>
+                </div>
             </h1>
             <div class="hero-roles">
                 <p>UI/UX Designer</p>
@@ -888,8 +956,8 @@
                 <p>Visual Storyteller</p>
             </div>
             <div class="cta-group">
-                <a href="#projects" class="btn btn-solid interactive-element" data-lenis-prevent>View Projects</a>
-                <a href="#contact" class="btn interactive-element" data-lenis-prevent>Book a Call</a>
+                <a href="#projects" class="btn interactive-element" data-lenis-prevent>View Projects</a>
+                <a href="#" class="btn btn-solid interactive-element open-contact" data-lenis-prevent>Start a Project</a>
             </div>
         </div>
     </section>
@@ -902,28 +970,27 @@
         </h2>
     </section>
 
-    <!-- Interactive Skills Orbit -->
-    <section class="skills-section">
+    <!-- Flowing Wave Skills Section -->
+    <section class="skills-section wave-section" id="skills">
         <h2 class="section-title gs_reveal" style="text-align: center;">Creative Arsenal</h2>
-        <div class="orbit-container gs_reveal">
-            <div class="center-node interactive-element">SKILLS</div>
-            <div class="orbit-ring-outer"></div>
-            <div class="orbit-ring">
-                <!-- Real icons from SimpleIcons -->
-                <div class="orbit-node interactive-element" title="Figma">
-                    <img src="https://cdn.simpleicons.org/figma/white" alt="Figma">
-                </div>
-                <div class="orbit-node interactive-element" title="Premiere Pro">
-                    <img src="https://cdn.simpleicons.org/adobepremierepro/white" alt="Premiere Pro">
-                </div>
-                <div class="orbit-node interactive-element" title="After Effects">
-                    <img src="https://cdn.simpleicons.org/adobeaftereffects/white" alt="After Effects">
-                </div>
-                <div class="orbit-node interactive-element" title="Photoshop">
-                    <img src="https://cdn.simpleicons.org/adobephotoshop/white" alt="Photoshop">
-                </div>
-                <div class="orbit-node interactive-element" title="Framer">
-                    <img src="https://cdn.simpleicons.org/framer/white" alt="Framer">
+        <div class="wave-container gs_reveal">
+            <!-- Huge amount of small gold particles -->
+            <div id="skill-particles"></div>
+            
+            <!-- Flowing Icons -->
+            <div class="flowing-icons">
+                <div class="flowing-track">
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/figma/D4AF37" alt="Figma"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobepremierepro/D4AF37" alt="Premiere Pro"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobeaftereffects/D4AF37" alt="After Effects"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobephotoshop/D4AF37" alt="Photoshop"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/framer/D4AF37" alt="Framer"></div>
+                    <!-- Duplicate for infinite loop -->
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/figma/D4AF37" alt="Figma"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobepremierepro/D4AF37" alt="Premiere Pro"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobeaftereffects/D4AF37" alt="After Effects"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobephotoshop/D4AF37" alt="Photoshop"></div>
+                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/framer/D4AF37" alt="Framer"></div>
                 </div>
             </div>
         </div>
@@ -1012,7 +1079,7 @@
             <span>SOMETHING</span>
             <span>UNFORGETTABLE.</span>
         </h2>
-        <a href="mailto:hello@smruti.com" class="btn btn-solid interactive-element gs_reveal" style="font-size: 1.2rem; padding: 25px 60px;">Start a Project</a>
+        <a href="#" class="btn btn-solid interactive-element gs_reveal open-contact" style="font-size: 1.2rem; padding: 25px 60px;">Start a Project</a>
         
         <div class="social-links gs_reveal">
             <a href="#" class="social-link interactive-element">Instagram</a>
@@ -1041,11 +1108,7 @@
             infinite: false,
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
+
 
         // Register GSAP ScrollTrigger & Sync with Lenis
         gsap.registerPlugin(ScrollTrigger);
@@ -1059,7 +1122,9 @@
 
         // Custom Cursor Logic
         const cursor = document.getElementById('custom-cursor');
-        const interactives = document.querySelectorAll('.interactive-element, a, button');
+        const interactives = document.querySelectorAll('.interactive-element, a, button, input, textarea');
+        
+        gsap.set(cursor, { xPercent: -50, yPercent: -50 });
         
         document.addEventListener('mousemove', (e) => {
             gsap.to(cursor, {
@@ -1075,28 +1140,58 @@
             el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
         });
 
-        // Floating Particles in Hero
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 40; i++) {
+        // Contact Modal Logic
+        const modal = document.getElementById('contact-modal');
+        const openBtns = document.querySelectorAll('.open-contact');
+        const closeBtn = document.getElementById('close-modal-btn');
+        const closeOverlay = document.getElementById('close-modal-overlay');
+
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
+        });
+
+        const closeModal = () => modal.classList.remove('active');
+        closeBtn.addEventListener('click', closeModal);
+        closeOverlay.addEventListener('click', closeModal);
+
+
+        // Global 3D Gold Metal Particles
+        const globalParticlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 25; i++) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
             
-            const size = Math.random() * 3 + 1;
+            const size = Math.random() * 20 + 10;
             particle.style.width = size + 'px';
             particle.style.height = size + 'px';
             
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
+            // Give them metallic geometric shapes
+            const shapes = [
+                'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', // Diamond
+                'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)', // Parallelogram
+                'polygon(50% 0%, 0% 100%, 100% 100%)' // Triangle
+            ];
+            particle.style.clipPath = shapes[Math.floor(Math.random() * shapes.length)];
             
-            particlesContainer.appendChild(particle);
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            
+            globalParticlesContainer.appendChild(particle);
 
+            // Animate tumbling in 3D space
             gsap.to(particle, {
-                y: -150 - Math.random() * 150,
-                x: (Math.random() - 0.5) * 100,
-                opacity: Math.random() * 0.5 + 0.1,
-                duration: 6 + Math.random() * 10,
+                y: -100 - Math.random() * 400,
+                x: (Math.random() - 0.5) * 200,
+                rotationX: Math.random() * 720,
+                rotationY: Math.random() * 720,
+                rotationZ: Math.random() * 720,
+                opacity: Math.random() * 0.4 + 0.3, // increased opacity
+                duration: 15 + Math.random() * 10,
                 repeat: -1,
-                delay: Math.random() * 5,
+                delay: -Math.random() * 15,
                 ease: "none"
             });
         }
@@ -1176,6 +1271,14 @@
                 duration: 1.5,
                 ease: "power4.out"
             }, "-=0.8")
+            .to(".title-signature", {
+                opacity: 1,
+                scale: 1,
+                xPercent: -50,
+                rotation: -5,
+                duration: 1,
+                ease: "back.out(1.5)"
+            }, "-=1.0")
             .to(".hero-roles", {
                 opacity: 1,
                 y: 0,
@@ -1209,6 +1312,58 @@
                     }
                 );
             });
+
+            // Flowing Wave Skill Section Animation
+            gsap.to(".flowing-track", {
+                xPercent: -50,
+                ease: "none",
+                duration: 25,
+                repeat: -1
+            });
+
+            // Make the skill icons "sail" like boats on the wave
+            gsap.to(".skill-node", {
+                y: "+=30",
+                yoyo: true,
+                repeat: -1,
+                duration: 2,
+                ease: "sine.inOut",
+                stagger: 0.3
+            });
+
+            const skillParticlesContainer = document.getElementById('skill-particles');
+            let waveTime = 0;
+            gsap.ticker.add((time, deltaTime) => { waveTime += deltaTime * 0.002; }); // Advance global wave time
+
+            for (let i = 0; i < 150; i++) {
+                const sp = document.createElement('div');
+                sp.classList.add('wave-particle');
+                skillParticlesContainer.appendChild(sp);
+
+                const duration = Math.random() * 6 + 3; // faster sea wave motion
+                sp._baselineY = 200 + (Math.random() - 0.5) * 80; // thick band of particles
+
+                // unified sea wave motion using GSAP Modifiers
+                let xTween = gsap.fromTo(sp, 
+                    { x: window.innerWidth + 50, y: 0 },
+                    {
+                        x: -50,
+                        y: 0,
+                        ease: "none",
+                        duration: duration,
+                        repeat: -1,
+                        modifiers: {
+                            y: function(y, target) {
+                                let currentX = parseFloat(gsap.getProperty(target, "x"));
+                                // math.sin( x * frequency + timePhase ) * amplitude
+                                return (target._baselineY + Math.sin(currentX * 0.005 + waveTime) * 80) + "px";
+                            }
+                        }
+                    }
+                );
+                // Advance the playhead randomly to fill screen immediately
+                xTween.progress(Math.random());
+            }
 
             // Timeline progress line drawing
             gsap.to("#timeline-progress", {
