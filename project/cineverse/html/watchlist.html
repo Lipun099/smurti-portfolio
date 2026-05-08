@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Collections | CineVerse</title>
+    <meta name="description" content="Discover curated cinematic mood collections on CineVerse.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <!-- Cinematic Search Overlay (Hidden by default) -->
+    <div id="search-overlay" class="search-overlay hidden">
+        <button id="close-search" class="icon-btn close-search-btn"><i data-lucide="x"></i></button>
+        <div class="search-container">
+            <h2 class="search-title">Search by mood, actor, genre, atmosphere.</h2>
+            <input type="text" class="search-input" placeholder="Type to explore...">
+            <div class="trending-searches">
+                <span>Trending:</span>
+                <button class="pill-btn">Cyberpunk aesthetics</button>
+                <button class="pill-btn">A24 thrillers</button>
+                <button class="pill-btn">Slow-burn drama</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="brand-logo">CINEVERSE.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Discover</a></li>
+                <li><a href="index.html#movies">Movies</a></li>
+                <li><a href="watchlist.html" class="active">Mood Collections</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="search.html" class="icon-btn search-trigger"><i data-lucide="search"></i></a>
+            <button class="icon-btn"><i data-lucide="bell"></i></button>
+            <div class="user-avatar">
+                <img src="https://ui-avatars.com/api/?name=User&background=C6A15B&color=fff" alt="User Avatar">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding-top: 120px;">
+        <section class="browse-section watchlist-section" id="watchlist">
+            <h1 class="movie-title" style="font-size: 3.5rem;">Mood Collections</h1>
+            <p class="section-subtitle" style="margin-bottom: 2rem; font-size: 1.2rem; color: var(--text-secondary);">Curated cinematic experiences for how you feel right now. Step into a different universe.</p>
+            
+            <div class="mood-grid" style="grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));">
+                <div class="mood-card" style="aspect-ratio: 21/9;">
+                    <img src="https://images.unsplash.com/photo-1515634928627-2a4e0dae3ddf?q=80&w=2000&auto=format&fit=crop" alt="Rainy Night Films">
+                    <div class="mood-card-content">
+                        <h3>Rainy Night Films</h3>
+                        <p>Perfect for when the sky is falling. Slow-burn mysteries and dramatic storytelling.</p>
+                    </div>
+                </div>
+                <div class="mood-card" style="aspect-ratio: 21/9;">
+                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2000&auto=format&fit=crop" alt="Mind-Bending Sci-Fi">
+                    <div class="mood-card-content">
+                        <h3>Mind-Bending Sci-Fi</h3>
+                        <p>Questions about reality, space, and existence itself.</p>
+                    </div>
+                </div>
+                <div class="mood-card" style="aspect-ratio: 21/9;">
+                    <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=2000&auto=format&fit=crop" alt="Late Night Thrillers">
+                    <div class="mood-card-content">
+                        <h3>Late Night Thrillers</h3>
+                        <p>Don't watch these alone. Psychological tension and suspense.</p>
+                    </div>
+                </div>
+                <div class="mood-card" style="aspect-ratio: 21/9;">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2000&auto=format&fit=crop" alt="Feel Good Cinema">
+                    <div class="mood-card-content">
+                        <h3>Feel Good Cinema</h3>
+                        <p>Uplifting, beautiful, and emotionally warm stories.</p>
+                    </div>
+                </div>
+                <div class="mood-card" style="aspect-ratio: 21/9;">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2000&auto=format&fit=crop" alt="Cyberpunk Worlds">
+                    <div class="mood-card-content">
+                        <h3>Cyberpunk Worlds</h3>
+                        <p>Neon lights, dystopian futures, and synthetic realities.</p>
+                    </div>
+                </div>
+                <div class="mood-card" style="aspect-ratio: 21/9;">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop" alt="Epic Journeys">
+                    <div class="mood-card-content">
+                        <h3>Epic Journeys</h3>
+                        <p>Massive scale adventures across worlds and lifetimes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>

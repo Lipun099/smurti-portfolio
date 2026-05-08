@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | CineVerse</title>
+    <meta name="description" content="Search for your favorite movies and series on CineVerse.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        .search-page-container {
+            padding-top: 120px;
+            padding-left: 4%;
+            padding-right: 4%;
+            min-height: 80vh;
+        }
+        .search-page-input-wrapper {
+            position: relative;
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        .search-page-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--text-secondary);
+            color: var(--text-white);
+            font-size: 3rem;
+            padding: 1rem 0 1rem 3.5rem;
+            outline: none;
+            font-weight: 700;
+            transition: border-color var(--transition-fast);
+        }
+        .search-page-input:focus {
+            border-bottom-color: var(--text-white);
+        }
+        .search-page-icon {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            width: 40px;
+            height: 40px;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="brand-logo">CINEVERSE.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Discover</a></li>
+                <li><a href="index.html#movies">Movies</a></li>
+                <li><a href="watchlist.html">Mood Collections</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="search.html" class="icon-btn search-trigger active"><i data-lucide="search"></i></a>
+            <button class="icon-btn"><i data-lucide="bell"></i></button>
+            <div class="user-avatar">
+                <img src="https://ui-avatars.com/api/?name=User&background=C6A15B&color=fff" alt="User Avatar">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="search-page-container">
+        <div class="search-page-input-wrapper">
+            <i data-lucide="search" class="search-page-icon"></i>
+            <input type="text" class="search-page-input" id="main-search-input" placeholder="Movies, shows, moods..." autofocus>
+        </div>
+
+        <div class="trending-searches" style="margin-bottom: 3rem;">
+            <span>Popular Searches:</span>
+            <button class="pill-btn">Sci-Fi Thrillers</button>
+            <button class="pill-btn">A24 Films</button>
+            <button class="pill-btn">Award Winners</button>
+            <button class="pill-btn">True Crime</button>
+        </div>
+
+        <h2 class="section-title">Top Results</h2>
+        <div class="results-grid" id="search-results-grid">
+            <!-- Populated by JS -->
+        </div>
+    </main>
+
+    <!-- Movie Details Modal (Reused) -->
+    <div id="movie-modal" class="movie-modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="close-modal-btn"><i data-lucide="x"></i></button>
+            <div class="modal-hero">
+                <div class="modal-gradient"></div>
+                <img id="modal-img" src="" alt="Movie Backdrop">
+                <div class="modal-info-layer">
+                    <h1 id="modal-title">Movie Title</h1>
+                    <div class="movie-meta">
+                        <span class="match">98% Match</span>
+                        <span class="year">2024</span>
+                        <span class="age">18+</span>
+                        <span class="duration">2h 15m</span>
+                        <span class="quality">4K HDR</span>
+                    </div>
+                    <p id="modal-desc" class="modal-synopsis">Synopsis goes here.</p>
+                    <div class="modal-actions">
+                        <button class="primary-btn"><i data-lucide="play"></i> Play</button>
+                        <button class="icon-btn outlined"><i data-lucide="plus"></i></button>
+                        <button class="icon-btn outlined"><i data-lucide="thumbs-up"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-details">
+                <div class="details-left">
+                    <div class="cast-info">
+                        <strong>Cast:</strong> <span>Actor One, Actor Two, Actor Three</span>
+                    </div>
+                    <div class="genre-info">
+                        <strong>Genres:</strong> <span>Sci-Fi, Thriller, Drama</span>
+                    </div>
+                </div>
+                <div class="details-right">
+                    <h3>Because you liked psychological thrillers...</h3>
+                    <div class="recommendations-grid" id="modal-recs">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+      lucide.createIcons();
+      
+      // Populate search grid with all movies initially
+      document.addEventListener('DOMContentLoaded', () => {
+          const grid = document.getElementById('search-results-grid');
+          const allMovies = [...window.moviesData.trending, ...window.moviesData.continue, ...window.moviesData.awards];
+          
+          const createCard = (movie) => `
+            <div class="movie-card" data-id="${movie.id}" onclick="openModal(${movie.id})" style="flex: unset;">
+                <img src="${movie.img}" alt="${movie.title}" loading="lazy">
+                <div class="card-info">
+                    <div class="card-title">${movie.title}</div>
+                    <div class="card-meta">
+                        <span class="match">${movie.match}</span>
+                        <span class="age">${movie.age}</span>
+                    </div>
+                </div>
+            </div>
+          `;
+          
+          grid.innerHTML = allMovies.map(createCard).join('');
+          
+          // Basic search filter functionality
+          const input = document.getElementById('main-search-input');
+          input.addEventListener('input', (e) => {
+              const term = e.target.value.toLowerCase();
+              const filtered = allMovies.filter(m => m.title.toLowerCase().includes(term) || m.genre.toLowerCase().includes(term));
+              grid.innerHTML = filtered.map(createCard).join('');
+          });
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+/* BUTTONS */
+.btn {
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 2px;
+    transition: all var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--accent-gold);
+    color: var(--bg-main);
+}
+
+.btn-primary:hover {
+    background: var(--accent-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(198, 161, 91, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.btn-secondary:hover {
+    background: rgba(198, 161, 91, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-tertiary {
+    background: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+.btn-tertiary:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Featured Cards */
+.featured-card {
+    flex: 0 0 320px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+    group;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.featured-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-smooth);
+}
+
+.featured-card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.card-play-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: var(--bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+.featured-card:hover .card-play-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-play-btn:hover {
+    background: var(--accent-gold-hover);
+    transform: scale(1.1);
+}
+
+.card-info {
+    padding: 1.25rem;
+    background: var(--bg-surface);
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.card-rating {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+}
+
+/* Reveal on Scroll Animation */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s var(--transition-cinematic);
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CATEGORY CARDS */
+.category-card {
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-bg {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-smooth);
+    font-size: 2rem;
+}
+
+.category-card:hover .category-bg {
+    transform: scale(1.05);
+}
+
+.category-card h3 {
+    padding: 1rem 1rem 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.category-card p {
+    padding: 0 1rem 1rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* GLASS MORPHISM - Subtle */
+.glass {
+    background: rgba(20, 20, 20, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(198, 161, 91, 0.1);
+    border-radius: 4px;
+}
+
+.glass:hover {
+    background: rgba(20, 20, 20, 0.4);
+    border-color: rgba(198, 161, 91, 0.2);
+}
+
+/* ICON BUTTONS */
+.icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(198, 161, 91, 0.1);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid rgba(198, 161, 91, 0.2);
+    transition: all var(--transition-smooth);
+}
+
+.icon-btn:hover {
+    background: rgba(198, 161, 91, 0.2);
+    transform: scale(1.1);
+}
+
+/* INPUT STYLES (for search/forms) */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background: var(--bg-surface);
+    border: 1px solid rgba(198, 161, 91, 0.2);
+    border-radius: 2px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background: rgba(20, 20, 20, 0.5);
+    box-shadow: 0 0 20px rgba(198, 161, 91, 0.2);
+}
+
+input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* BADGES & LABELS */
+.badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: rgba(198, 161, 91, 0.1);
+    border: 1px solid rgba(198, 161, 91, 0.3);
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* HOVER GLOW EFFECT */
+.hover-glow {
+    transition: all var(--transition-smooth);
+}
+
+.hover-glow:hover {
+    box-shadow: var(--glow-gold-strong);
+}
+
+/* PARALLAX EFFECT */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* GRADIENT TEXT */
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* DIVIDERS */
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent, 
+        rgba(198, 161, 91, 0.3), 
+        transparent);
+    margin: 2rem 0;
+}
+
+/* SECTION SPACING */
+.section-spacing {
+    padding: 60px 0;
+}
+
+.section-spacing-lg {
+    padding: 120px 0;
+}
+
+/* TRANSITIONS FOR REVEAL */
+@keyframes revealFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes revealFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.reveal-bottom {
+    animation: revealFromBottom 0.8s var(--transition-cinematic);
+}
+
+.reveal-left {
+    animation: revealFromLeft 0.8s var(--transition-cinematic);
+}
+
+.reveal-right {
+    animation: revealFromRight 0.8s var(--transition-cinematic);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .featured-card {
+        flex: 0 0 200px;
+    }
+
+    .card-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .card-rating {
+        font-size: 0.8rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    textarea {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+    }
+
+    .featured-card {
+        flex: 0 0 160px;
+    }
+
+    .card-info h3 {
+        font-size: 0.85rem;
+    }
+}

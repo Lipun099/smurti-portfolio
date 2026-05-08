@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse | Premium Cinema Experience</title>
+    <meta name="description" content="Experience cinema like never before. CineVerse brings luxury streaming to life.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-text">CINEVERSE</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="search.html" class="nav-link">Discover</a>
+                <a href="watchlist.html" class="nav-link">My Watchlist</a>
+                <a href="#" class="nav-link">About</a>
+            </div>
+            <button class="nav-cta">Sign In</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920&h=1080&fit=crop')"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-grain"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-title-container">
+                <h1 class="hero-title">The Last Kingdom</h1>
+                <p class="hero-subtitle">A Journey Beyond Reality</p>
+            </div>
+            
+            <p class="hero-description">
+                Immerse yourself in a cinematic masterpiece. Where every frame tells a story,
+                and every moment matters. Experience the pinnacle of storytelling.
+            </p>
+            
+            <div class="hero-actions">
+                <button class="btn btn-primary">
+                    <i data-lucide="play" width="20" height="20"></i>
+                    Watch Now
+                </button>
+                <button class="btn btn-secondary">
+                    <i data-lucide="info" width="20" height="20"></i>
+                    More Info
+                </button>
+            </div>
+
+            <div class="hero-rating">
+                <div class="rating-stars">⭐ 9.2 / 10</div>
+                <div class="rating-meta">2024 • 8 Episodes • Drama</div>
+            </div>
+        </div>
+
+        <!-- Animated Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- FEATURED MOVIES SECTION -->
+    <section class="featured-section">
+        <div class="section-header">
+            <h2 class="section-title">Trending Now</h2>
+            <p class="section-subtitle">The most watched stories this week</p>
+        </div>
+
+        <div class="featured-carousel">
+            <div class="carousel-wrapper">
+                <div class="featured-cards">
+                    <!-- Card 1 -->
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1559512071-041d3d1ac0e7?w=600&h=900&fit=crop" alt="Movie 1">
+                            <div class="card-overlay">
+                                <button class="card-play-btn">
+                                    <i data-lucide="play" width="32" height="32"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Cosmic Dreams</h3>
+                            <p class="card-meta">Action • 2h 34m</p>
+                            <div class="card-rating">9.1</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&h=900&fit=crop" alt="Movie 2">
+                            <div class="card-overlay">
+                                <button class="card-play-btn">
+                                    <i data-lucide="play" width="32" height="32"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Silent Echo</h3>
+                            <p class="card-meta">Drama • 2h 8m</p>
+                            <div class="card-rating">8.9</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1516738901601-b53f3cc8c72f?w=600&h=900&fit=crop" alt="Movie 3">
+                            <div class="card-overlay">
+                                <button class="card-play-btn">
+                                    <i data-lucide="play" width="32" height="32"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Neon Nights</h3>
+                            <p class="card-meta">Thriller • 1h 57m</p>
+                            <div class="card-rating">8.7</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=600&h=900&fit=crop" alt="Movie 4">
+                            <div class="card-overlay">
+                                <button class="card-play-btn">
+                                    <i data-lucide="play" width="32" height="32"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Lost Horizons</h3>
+                            <p class="card-meta">Adventure • 2h 22m</p>
+                            <div class="card-rating">9.0</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1489599849228-ed57dc1ec682?w=600&h=900&fit=crop" alt="Movie 5">
+                            <div class="card-overlay">
+                                <button class="card-play-btn">
+                                    <i data-lucide="play" width="32" height="32"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Eternal Night</h3>
+                            <p class="card-meta">Fantasy • 2h 45m</p>
+                            <div class="card-rating">8.8</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORYTELLING SECTION -->
+    <section class="storytelling-section">
+        <div class="storytelling-content">
+            <div class="story-item reveal-on-scroll">
+                <div class="story-number">01</div>
+                <h3 class="story-title">Curated for You</h3>
+                <p class="story-description">
+                    Our advanced AI learns your preferences and delivers personalized recommendations
+                    that align perfectly with your cinematic taste.
+                </p>
+            </div>
+
+            <div class="story-item reveal-on-scroll" style="animation-delay: 0.1s">
+                <div class="story-number">02</div>
+                <h3 class="story-title">Masterful Craftsmanship</h3>
+                <p class="story-description">
+                    Every title in our collection is handpicked by our editorial team,
+                    ensuring premium quality and unforgettable experiences.
+                </p>
+            </div>
+
+            <div class="story-item reveal-on-scroll" style="animation-delay: 0.2s">
+                <div class="story-number">03</div>
+                <h3 class="story-title">Seamless Viewing</h3>
+                <p class="story-description">
+                    Experience cinema without interruption. Ultra-HD quality, zero buffering,
+                    and synchronized across all your devices.
+                </p>
+            </div>
+
+            <div class="story-item reveal-on-scroll" style="animation-delay: 0.3s">
+                <div class="story-number">04</div>
+                <h3 class="story-title">Exclusive Content</h3>
+                <p class="story-description">
+                    Gain access to original productions, early releases, and behind-the-scenes
+                    content available only to our premium members.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="experience-section">
+        <div class="experience-background">
+            <div class="experience-image">
+                <img src="https://images.unsplash.com/photo-1566264534884-fc280ce4a299?w=1200&h=800&fit=crop" alt="Experience">
+            </div>
+            <div class="experience-overlay"></div>
+        </div>
+
+        <div class="experience-content">
+            <h2 class="experience-title">Your Personal Cinema</h2>
+            <p class="experience-subtitle">Intelligent recommendations powered by taste</p>
+
+            <div class="experience-features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i data-lucide="star" width="24" height="24"></i>
+                    </div>
+                    <h4>Smart Recommendations</h4>
+                    <p>AI-driven suggestions based on your viewing history and preferences</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i data-lucide="bookmark" width="24" height="24"></i>
+                    </div>
+                    <h4>Watchlist Management</h4>
+                    <p>Organize your favorites and never miss a release</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i data-lucide="zap" width="24" height="24"></i>
+                    </div>
+                    <h4>Instant Access</h4>
+                    <p>Start watching in seconds with seamless device sync</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i data-lucide="hd" width="24" height="24"></i>
+                    </div>
+                    <h4>Premium Quality</h4>
+                    <p>4K Ultra HD and HDR for the ultimate cinematic experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories-section">
+        <div class="section-header">
+            <h2 class="section-title">Browse by Mood</h2>
+            <p class="section-subtitle">Find your next favorite story</p>
+        </div>
+
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-bg" style="background: linear-gradient(135deg, #1a1a1a, #2d2416)">
+                    <i data-lucide="heart" width="32" height="32"></i>
+                </div>
+                <h3>Romance</h3>
+                <p>42 titles</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-bg" style="background: linear-gradient(135deg, #1a1a1a, #1a2a2d)">
+                    <i data-lucide="zap" width="32" height="32"></i>
+                </div>
+                <h3>Action</h3>
+                <p>58 titles</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-bg" style="background: linear-gradient(135deg, #1a1a1a, #2a1a2d)">
+                    <i data-lucide="user" width="32" height="32"></i>
+                </div>
+                <h3>Drama</h3>
+                <p>76 titles</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-bg" style="background: linear-gradient(135deg, #1a1a1a, #2d2a1a)">
+                    <i data-lucide="laugh" width="32" height="32"></i>
+                </div>
+                <h3>Comedy</h3>
+                <p>34 titles</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Enter CineVerse?</h2>
+            <p class="cta-subtitle">Join thousands of cinema enthusiasts experiencing premium streaming</p>
+            
+            <div class="cta-buttons">
+                <button class="btn btn-primary btn-lg">Start Your Journey</button>
+                <button class="btn btn-tertiary btn-lg">Learn More</button>
+            </div>
+
+            <p class="cta-footer">30-day free trial. No credit card required.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Security</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">Blog</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CineVerse. All rights reserved. | Crafted with cinema in mind.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
