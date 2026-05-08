@@ -545,6 +545,13 @@
             filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
         }
 
+        .skill-node img.adobe-app-icon {
+            width: 58px;
+            height: 58px;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.35));
+            border-radius: 14px;
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -636,6 +643,38 @@
             color: var(--text-sec);
             font-size: 1.1rem;
             line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 26px;
+            color: var(--bg);
+            background: linear-gradient(135deg, var(--gold), var(--gold-glow), var(--gold-dark));
+            padding: 12px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-link::after {
+            content: '->';
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-link {
+            transform: translateY(-2px);
+            box-shadow: 0 0 28px rgba(212, 175, 55, 0.45);
+        }
+
+        .project-card:hover .project-link::after {
+            transform: translateX(4px);
         }
 
         /* Timeline Section */
@@ -1048,15 +1087,15 @@
             <div class="flowing-icons">
                 <div class="flowing-track">
                     <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/figma/D4AF37" alt="Figma"></div>
-                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobepremierepro/D4AF37" alt="Premiere Pro"></div>
-                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobeaftereffects/D4AF37" alt="After Effects"></div>
-                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobephotoshop/D4AF37" alt="Photoshop"></div>
+                    <div class="skill-node interactive-element"><img class="adobe-app-icon" src="assets/icons/premiere-pro.svg" alt="Premiere Pro"></div>
+                    <div class="skill-node interactive-element"><img class="adobe-app-icon" src="assets/icons/after-effects.svg" alt="After Effects"></div>
+                    <div class="skill-node interactive-element"><img class="adobe-app-icon" src="assets/icons/photoshop.svg" alt="Photoshop"></div>
                     <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/framer/D4AF37" alt="Framer"></div>
                     <!-- Duplicate for infinite loop -->
                     <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/figma/D4AF37" alt="Figma"></div>
-                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobepremierepro/D4AF37" alt="Premiere Pro"></div>
-                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobeaftereffects/D4AF37" alt="After Effects"></div>
-                    <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/adobephotoshop/D4AF37" alt="Photoshop"></div>
+                    <div class="skill-node interactive-element"><img class="adobe-app-icon" src="assets/icons/premiere-pro.svg" alt="Premiere Pro"></div>
+                    <div class="skill-node interactive-element"><img class="adobe-app-icon" src="assets/icons/after-effects.svg" alt="After Effects"></div>
+                    <div class="skill-node interactive-element"><img class="adobe-app-icon" src="assets/icons/photoshop.svg" alt="Photoshop"></div>
                     <div class="skill-node interactive-element"><img src="https://cdn.simpleicons.org/framer/D4AF37" alt="Framer"></div>
                 </div>
             </div>
@@ -1067,29 +1106,32 @@
     <section class="projects" id="projects">
         <h2 class="section-title gs_reveal" style="text-align: center;">Selected Works</h2>
         <div class="projects-grid">
-            <a href="#" class="project-card interactive-element gs_reveal">
+            <a href="project/aura%20studio/html/index.html" class="project-card interactive-element gs_reveal" aria-label="View Aura Studio project">
                 <div class="project-visual">
-                    <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1">
+                    <img src="project/aura%20studio/assets/hero-bg.png" alt="Aura Studio project preview">
                 </div>
-                <span class="project-type">UI/UX Design</span>
-                <h3 class="project-name">Luxury E-Commerce</h3>
-                <p class="project-desc">A premium shopping experience designed for high-end fashion, focusing on conversion and editorial beauty.</p>
+                <span class="project-type">Creative Agency</span>
+                <h3 class="project-name">Aura Studio</h3>
+                <p class="project-desc">A luxury creative agency website with editorial layouts, cinematic motion, and polished visual storytelling.</p>
+                <span class="project-link">View Project</span>
             </a>
-            <a href="#" class="project-card interactive-element gs_reveal">
+            <a href="project/cineverse/html/index.html" class="project-card interactive-element gs_reveal" aria-label="View CineVerse project">
                 <div class="project-visual">
-                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 2">
+                    <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&h=800&fit=crop" alt="CineVerse project preview">
                 </div>
-                <span class="project-type">Motion Graphics</span>
-                <h3 class="project-name">Brand Anthem</h3>
-                <p class="project-desc">Cinematic video editing and motion design for a global tech startup campaign.</p>
+                <span class="project-type">Streaming UI</span>
+                <h3 class="project-name">CineVerse</h3>
+                <p class="project-desc">A premium cinema streaming experience with movie discovery, watchlist pages, and dramatic visual depth.</p>
+                <span class="project-link">View Project</span>
             </a>
-            <a href="#" class="project-card interactive-element gs_reveal">
+            <a href="project/volt/html/index.html" class="project-card interactive-element gs_reveal" aria-label="View Volt EV project">
                 <div class="project-visual">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 3">
+                    <img src="project/volt/assets/hero-car.png" alt="Volt EV project preview">
                 </div>
-                <span class="project-type">Web Experience</span>
-                <h3 class="project-name">Creative Agency</h3>
-                <p class="project-desc">An Awwwards-winning portfolio site featuring immersive 3D interactions and smooth scroll storytelling.</p>
+                <span class="project-type">Automotive Web</span>
+                <h3 class="project-name">Volt EV</h3>
+                <p class="project-desc">A futuristic electric vehicle landing experience with sleek product visuals and high-performance interaction design.</p>
+                <span class="project-link">View Project</span>
             </a>
         </div>
     </section>
